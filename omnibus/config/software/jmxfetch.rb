@@ -38,7 +38,10 @@ build do
       hardened_runtime = ''
     end
 
-    command "find . -type f | grep -E '(\\.so|\\.dylib|\\.jnilib)' | xargs codesign #{hardened_runtime}--force --timestamp --deep -s 'Developer ID Application: Datadog, Inc. (JKFCB4CN7C)'"
+    if code_signing_identity
+      command "find . -type f | grep -E '(\\.so|\\.dylib|\\.jnilib)' | xargs codesign #{hardened_runtime}--force --timestamp --deep -s 'Developer ID Application: Datadog, Inc. (JKFCB4CN7C)'"
+    end
+
     command "zip jmxfetch.jar -r ."
   end
 
