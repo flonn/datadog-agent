@@ -9,6 +9,7 @@ package providers
 
 import (
 	"fmt"
+
 	"github.com/DataDog/datadog-agent/pkg/autodiscovery/integration"
 	"github.com/DataDog/datadog-agent/pkg/autodiscovery/providers/names"
 	"github.com/DataDog/datadog-agent/pkg/config"
